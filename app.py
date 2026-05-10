@@ -13,106 +13,51 @@ geolocator = Nominatim(user_agent="travel_itinerary_streamlit")
 def apply_custom_style():
     st.markdown("""
         <style>
-        /* 1. ANIMATIONS: Smooth Fade In for the whole app */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .stApp {
-            animation: fadeIn 0.8s ease-out;
-            background: linear-gradient(to bottom, #fdfdfd, #eef2f3);
+        /* 1. Use CSS Variables for Universal Visibility */
+        :root {
+            --primary-text: var(--text-color); /* Streamlit's built-in text variable */
         }
 
-        /* 2. SIDEBAR: Darker contrast for clarity */
+        /* 2. Global Text Visibility */
+        .stMarkdown, p, label, .stHeader {
+            color: var(--text-color) !important; 
+        }
+
+        /* 3. SIDEBAR: Force visibility regardless of theme */
         section[data-testid="stSidebar"] {
-            background-color: #ff7675 !important;
-            border-right: 2px solid #d63031 !important;
-        }
-        section[data-testid="stSidebar"] .stMarkdown, section[data-testid="stSidebar"] label {
-            color: #2d3436 !important;
-            font-weight: 600;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        /* 3. BUTTONS: Gradient colors + Hover Animation */
-        div.stButton > button:first-child {
-            background: linear-gradient(45deg, #27ae60, #2ecc71);
-            color: white !important;
-            border-radius: 12px;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            font-weight: bold;
-            font-size: 18px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            width: 100%;
-        }
-
-        div.stButton > button:first-child:hover {
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
-            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
-            transform: translateY(-3px);
-            color: #ffffff !important;
+            /* Keep your light red background but ensure text stays dark for contrast */
+            background-color: #fab1a0 !important; 
         }
         
-        div.stButton > button:first-child:active {
-            transform: scale(0.95);
+        section[data-testid="stSidebar"] .stMarkdown p, 
+        section[data-testid="stSidebar"] label {
+            color: #1a252f !important; /* Dark Blue for readability on Light Red */
+            font-weight: 600 !important;
         }
 
-        /* 4. TABS: Clearer selection visibility */
-        button[data-baseweb="tab"] {
-            font-size: 18px;
-            font-weight: 600;
-            color: #7f8c8d;
-        }
-        button[aria-selected="true"] {
-            color: #27ae60 !important;
-            border-bottom-color: #27ae60 !important;
-        }
-
-        /* 5. METRICS & INPUTS: High Visibility */
-        [data-testid="stMetricValue"] {
-            color: #c0392b !important;
-            font-weight: 800;
-        }
-        
-        /* Input box borders for better visibility */
-        .stTextInput input, .stNumberInput input, .stSelectbox div {
-            border: 1px solid #bdc3c7 !important;
-            border-radius: 8px !important;
-        }
-
-        /* 6. EXPANDERS (Daily Menu Cards) */
-        .streamlit-expanderHeader {
+        /* 4. INPUT BOXES: Ensure white background in dark mode for clarity */
+        .stTextInput input, .stNumberInput input, .stSelectbox div[data-baseweb="select"] {
             background-color: #ffffff !important;
-            border: 1px solid #dcdde1 !important;
-            border-radius: 10px !important;
-            color: #2c3e50 !important;
+            color: #1a252f !important;
+            border: 1px solid #ced4da !important;
+        }
+
+        /* 5. TABS: Make them pop in dark mode */
+        button[data-baseweb="tab"] p {
+            color: var(--text-color);
+        }
+        button[aria-selected="true"] p {
+            color: #27ae60 !important; /* Keep your Safarnama Green */
+            font-weight: bold;
+        }
+
+        /* 6. EXPANDERS (Daily Menus) */
+        .streamlit-expanderHeader {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid var(--secondary-background-color) !important;
         }
         </style>
     """, unsafe_allow_html=True)
-    st.markdown("""
-    <style>
-    /* Target the container that holds the sidebar image */
-    [data-testid="stSidebarNav"] + div, /* For newer Streamlit versions */
-    [data-testid="stSidebar"] [data-testid="stVerticalBlock"] > div:first-child {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding-top: 10px;
-    }
-
-    /* Ensure the image itself doesn't stretch and stays crisp */
-    [data-testid="stSidebar"] img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 150px; /* Adjust this to your desired width */
-        height: auto;
-    }
-    </style>
-""", unsafe_allow_html=True)
 # Call this at the start of your code
 apply_custom_style()
 def load_data():
@@ -162,7 +107,7 @@ def add_sticky_footer():
     
     <div class="footer">
         <p> Designed with ❤️ by Mayur B. Gund and Rohit J. Khokale</p>
-        <p> 🗺️ UDAAN Travel Services © 2026 | All Rights Reserved</p>
+        <p> 🗺️ SAFARNAMA Travel Services © 2026 | All Rights Reserved</p>
     </div>
     """
     st.markdown(footer_style, unsafe_allow_html=True)
@@ -183,7 +128,7 @@ def generate_pdf(dest, start, arrival, departure, days, members, dist, mode, hot
         pass
     pdf.set_font("Arial", 'B', 24)
     pdf.set_text_color(44, 62, 80) # Dark Blue/Grey
-    pdf.cell(0, 10, txt="UDAAN", ln=True, align='R')
+    pdf.cell(0, 10, txt="SAFARNAMA", ln=True, align='R')
     pdf.set_font("Arial", 'I', 10)
     pdf.cell(0, 10, txt="Your Journey, Our Passion", ln=True, align='R')
     pdf.ln(15)
@@ -263,7 +208,7 @@ def generate_pdf(dest, start, arrival, departure, days, members, dist, mode, hot
     return pdf.output(dest="S").encode("latin-1", errors="replace")
 # --- STREAMLIT UI ---
 st.set_page_config(page_title="UDAAN TRAVEL SERVICE", layout="wide")
-st.title("🗺️ UDAAN TRAVEL SERVICES")
+st.title("🗺️ SAFARNAMA TRAVEL SERVICES")
 st.markdown("---")
 
 # Sidebar for Initial Setup
