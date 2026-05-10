@@ -162,7 +162,7 @@ def add_sticky_footer():
     
     <div class="footer">
         <p> Designed with ❤️ by Mayur B. Gund and Rohit J. Khokale</p>
-        <p> 🗺️ Safarnama Travel Services © 2026 | All Rights Reserved</p>
+        <p> 🗺️ UDAAN Travel Services © 2026 | All Rights Reserved</p>
     </div>
     """
     st.markdown(footer_style, unsafe_allow_html=True)
