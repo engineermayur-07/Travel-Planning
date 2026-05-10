@@ -183,7 +183,7 @@ def generate_pdf(dest, start, arrival, departure, days, members, dist, mode, hot
         pass
     pdf.set_font("Arial", 'B', 24)
     pdf.set_text_color(44, 62, 80) # Dark Blue/Grey
-    pdf.cell(0, 10, txt="SAFARNAMA", ln=True, align='R')
+    pdf.cell(0, 10, txt="UDAAN", ln=True, align='R')
     pdf.set_font("Arial", 'I', 10)
     pdf.cell(0, 10, txt="Your Journey, Our Passion", ln=True, align='R')
     pdf.ln(15)
@@ -262,8 +262,8 @@ def generate_pdf(dest, start, arrival, departure, days, members, dist, mode, hot
     # Note: Clean symbols logic as discussed before
     return pdf.output(dest="S").encode("latin-1", errors="replace")
 # --- STREAMLIT UI ---
-st.set_page_config(page_title="Safarnama Travel", layout="wide")
-st.title("🗺️ Safarnama Travel Services")
+st.set_page_config(page_title="UDAAN TRAVEL SERVICE", layout="wide")
+st.title("🗺️ UDAAN TRAVEL SERVICES")
 st.markdown("---")
 
 # Sidebar for Initial Setup
