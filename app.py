@@ -93,15 +93,15 @@ def add_sticky_footer():
         background-color: #2c3e50; /* Matches your Midnight Blue theme */
         color: white;
         text-align: center;
-        padding: 7px 0;
-        font-size: 18px;
+        padding: 5px 0;
+        font-size: 16px;
         z-index: 999;
         border-top: 2px solid #27ae60; /* Subtle green line to match primary color */
     }
     
     /* This adds padding to the bottom of the app so the footer doesn't hide content */
     .main .block-container {
-        padding-bottom: 60px;
+        padding-bottom: 50px;
     }
     </style>
     
