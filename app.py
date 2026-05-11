@@ -101,7 +101,7 @@ def add_sticky_footer():
     
     /* This adds padding to the bottom of the app so the footer doesn't hide content */
     .main .block-container {
-        padding-bottom: 50px;
+        padding-bottom: 40px;
     }
     </style>
     
