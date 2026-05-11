@@ -93,8 +93,8 @@ def add_sticky_footer():
         background-color: #2c3e50; /* Matches your Midnight Blue theme */
         color: white;
         text-align: center;
-        padding: 10px 0;
-        font-size: 20px;
+        padding: 20px 0;
+        font-size: 16px;
         z-index: 999;
         border-top: 2px solid #27ae60; /* Subtle green line to match primary color */
     }
