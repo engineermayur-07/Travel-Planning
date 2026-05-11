@@ -106,7 +106,7 @@ def add_sticky_footer():
     </style>
     
     <div class="footer">
-        <p> 🗺️ SAFARNAMA Travel Services © 2026 | All Rights Reserved</p>
+        <p> 🗺️ SAFARNAMA © 2026 | All Rights Reserved</p>
         <p> Developed with ❤️ by Mayur B. Gund and Rohit J. Khokale</p>
 
     </div>
