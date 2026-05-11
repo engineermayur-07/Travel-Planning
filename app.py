@@ -93,8 +93,8 @@ def add_sticky_footer():
         background-color: #2c3e50; /* Matches your Midnight Blue theme */
         color: white;
         text-align: center;
-        padding: 20px 0;
-        font-size: 16px;
+        padding: 7px 0;
+        font-size: 18px;
         z-index: 999;
         border-top: 2px solid #27ae60; /* Subtle green line to match primary color */
     }
@@ -106,8 +106,9 @@ def add_sticky_footer():
     </style>
     
     <div class="footer">
-        <p> Designed with ❤️ by Mayur B. Gund and Rohit J. Khokale</p>
         <p> 🗺️ SAFARNAMA Travel Services © 2026 | All Rights Reserved</p>
+        <p> Developed with ❤️ by Mayur B. Gund and Rohit J. Khokale</p>
+
     </div>
     """
     st.markdown(footer_style, unsafe_allow_html=True)
