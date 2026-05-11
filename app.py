@@ -26,7 +26,7 @@ def apply_custom_style():
         /* 3. SIDEBAR: Force visibility regardless of theme */
         section[data-testid="stSidebar"] {
             /* Keep your light red background but ensure text stays dark for contrast */
-            background-color: #fab1a0 !important; 
+            background-color: #f56642 !important; 
         }
         
         section[data-testid="stSidebar"] .stMarkdown p, 
@@ -209,7 +209,7 @@ def generate_pdf(dest, start, arrival, departure, days, members, dist, mode, hot
     # Note: Clean symbols logic as discussed before
     return pdf.output(dest="S").encode("latin-1", errors="replace")
 # --- STREAMLIT UI ---
-st.set_page_config(page_title="UDAAN TRAVEL SERVICE", layout="wide")
+st.set_page_config(page_title="SAFARNAMA TRAVEL SERVICE", layout="wide")
 st.title("🗺️ SAFARNAMA TRAVEL SERVICES")
 st.markdown("---")
 
